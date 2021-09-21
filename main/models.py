@@ -11,6 +11,8 @@ class Stop(models.Model):
     gid = models.IntegerField(("gid"))
     last_update = models.DateTimeField(("last_update"), max_length=200)
     last_update_fme = models.DateTimeField(("last_update_fme"), max_length=200)
+    coord1 = models.DecimalField(("coord1"), max_digits = 45, decimal_places = 20)
+    coord2 = models.DecimalField(("coord2"), max_digits = 45, decimal_places = 20)
 
     def __str__(self):
         return self.nom
