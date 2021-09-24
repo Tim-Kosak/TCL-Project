@@ -15,6 +15,6 @@ def get_nearset_stop(stop_list, orig_lat, orig_lon):
         if min_dist > distance:
             res_id = s.id
             min_dist = distance
-            print("Nouvel arrêt trouvé : " + s.nom)
+            #print("Nouvel arrêt trouvé : " + s.nom)
 
     return res_id
