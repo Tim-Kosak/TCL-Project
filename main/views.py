@@ -7,6 +7,9 @@ from decimal import Decimal
 # Create your views here.
 
 def index(request):
+    return render(request, 'index.html', {"port" : request.META['SERVER_PORT']})
+
+def getRoute(request):
     stop_list = Stop.objects.filter(coord1__lte = 1000, coord2__lte = 1000) #Filtre sur les adresses non valides
 
     lat = Decimal(request.GET.get("lat"))
@@ -21,4 +24,4 @@ def index(request):
         "res_size" : len(stop_list),
         "nearest_stop" : Stop.objects.get(id=id_res)
     }
-    return render(request, 'index.html', context )
+    return render(request, 'getRoute.html', context )
