@@ -21,7 +21,7 @@ def getRoute(request):
         "stop_list" : stop_list,
         "lat" : lat,
         "lon" : lon,
-        "res_size" : len(stop_list),
-        "nearest_stop" : Stop.objects.get(id=id_res)
+        "nearest_stop" : Stop.objects.get(id=id_res),
+        "research_parameters" : ["P.M.R", "Escalator", "Ascenceur"]
     }
     return render(request, 'getRoute.html', context )
