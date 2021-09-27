@@ -20,12 +20,14 @@ def getRoute(request):
 
     id_res = get_nearset_stop(stop_list, lat, lon)
 
+    print([["P.M.R",request.GET.get("P.M.R")], ["Escalator", str(request.GET.get("Escalator"))], ["Ascenceur", request.GET.get("Ascenceur")]])
+
     context = {
         "stop_list" : stop_list,
         "lat" : lat,
         "lon" : lon,
         "nearest_stop" : Stop.objects.get(id=id_res),
-        "navBar_research_parameters" : [["P.M.R",request.GET.get("P.M.R")], ["Escalator", request.GET.get("Escalator")], ["Ascenceur", request.GET.get("Escalator")]],
-        "site_addr" : addr + request.META['SERVER_PORT']
+        "navBar_research_parameters" : [["P.M.R",request.GET.get("P.M.R")], ["Escalator", request.GET.get("Escalator")], ["Ascenceur", request.GET.get("Ascenseur")]],
+        "site_addr" : addr + request.META['SERVER_PORT'] + reverse("getRoute")
     }
     return render(request, 'getRoute.html', context )

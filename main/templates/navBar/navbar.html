@@ -10,14 +10,26 @@
       <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
         
           {% for name, prev_value in navBar_research_parameters %}
-            {% include "./dpMenu.html" %}
             {% with name as varName %}
             {% with prev_value as value %}
               {% include "../utils/hiddenInput.html" %}
             {% endwith %}
             {% endwith %}
+            {% include "./dpMenu.html" %}
           {% endfor %}
         
+          {% with 'lat' as varName %}
+          {% with lat as value %}
+            {% include "../utils/hiddenInput.html" %}
+          {% endwith %}
+          {% endwith %}
+
+          {% with 'lon' as varName %}
+          {% with lon as value %}
+              {% include "../utils/hiddenInput.html" %}
+          {% endwith %}
+          {% endwith %}
+
       </ul>
     </form>
     </div>
