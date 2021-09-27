@@ -3,8 +3,11 @@ from django.http import HttpResponse
 from .models import *
 from .tools import *
 from decimal import Decimal
+from django.urls import reverse
 
 # Create your views here.
+
+addr = "http://127.0.0.1:"
 
 def index(request):
     return render(request, 'index.html', {"port" : request.META['SERVER_PORT']})
@@ -22,6 +25,7 @@ def getRoute(request):
         "lat" : lat,
         "lon" : lon,
         "nearest_stop" : Stop.objects.get(id=id_res),
-        "research_parameters" : ["P.M.R", "Escalator", "Ascenceur"]
+        "navBar_research_parameters" : [["P.M.R",request.GET.get("P.M.R")], ["Escalator", request.GET.get("Escalator")], ["Ascenceur", request.GET.get("Escalator")]],
+        "site_addr" : addr + request.META['SERVER_PORT']
     }
     return render(request, 'getRoute.html', context )

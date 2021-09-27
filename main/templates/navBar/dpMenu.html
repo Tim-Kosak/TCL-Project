@@ -1,10 +1,10 @@
 <li class='nav-item dropdown'>
-    <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown'
+    <a class='nav-link dropdown-toggle text-light' id='navbarDropdown' role='button' data-bs-toggle='dropdown'
       aria-expanded='false'>
       {{ name }}
     </a>
     <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
-      <li><a class='dropdown-item' href='#'>Avec</a></li>
-      <li><a class='dropdown-item' href='#'>Sans</a></li>
+      <button class='dropdown-item' type='submit' name='{{ name }}' value='with'>Avec</button>
+      <button class='dropdown-item' type='submit' name='{{ name }}' value='whatever'>Peu importe</button>
     </ul>
   </li>
