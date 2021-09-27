@@ -50,7 +50,7 @@ def getRoute(request):
         "lat" : lat,
         "lon" : lon,
         "nearest_stop" : Stop.objects.get(id=id_res),
-        "navBar_research_parameters" : [["P.M.R",pmr_param], ["Escalator", asc_param], ["Ascenseur", asc_param]],
+        "navBar_research_parameters" : [["P.M.R",pmr_param], ["Escalator", esc_param], ["Ascenseur", asc_param]],
         "site_addr" : addr + request.META['SERVER_PORT'] + reverse("getRoute")
     }
 

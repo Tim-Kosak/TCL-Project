@@ -8,14 +8,14 @@
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <form action='{{ site_addr }}' methode='GET'>
       <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-        
+      
           {% for name, prev_value in navBar_research_parameters %}
             {% with name as varName %}
             {% with prev_value as value %}
               {% include "../utils/hiddenInput.html" %}
+              {% include "./dpMenu.html" %}
             {% endwith %}
             {% endwith %}
-            {% include "./dpMenu.html" %}
           {% endfor %}
         
           {% with 'lat' as varName %}

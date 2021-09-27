@@ -1,7 +1,10 @@
 <li class='nav-item dropdown'>
     <a class='nav-link dropdown-toggle text-light' id='navbarDropdown' role='button' data-bs-toggle='dropdown'
       aria-expanded='false'>
-      {{ name }}
+      {{ name }} 
+      {% if value != "None" %}
+        : {{ value }}
+      {% endif %}
     </a>
     <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
       <button class='dropdown-item' type='submit' name='{{ name }}' value='with'>Avec</button>
