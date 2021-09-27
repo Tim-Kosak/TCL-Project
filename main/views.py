@@ -13,21 +13,45 @@ def index(request):
     return render(request, 'index.html', {"port" : request.META['SERVER_PORT']})
 
 def getRoute(request):
+    #Get parameters passed by GET method
+    esc_param = str(request.GET.get("Escalator"))
+    pmr_param = str(request.GET.get("P.M.R"))
+    asc_param = str(request.GET.get("Ascenseur"))
+
     stop_list = Stop.objects.filter(coord1__lte = 1000, coord2__lte = 1000) #Filtre sur les adresses non valides
+
+    print("Total stop_list size (Before): " + str(stop_list.count()))
+
+    # Filter none-escalator bus Stop
+    if esc_param.__contains__("with"):
+        stop_list = stop_list.filter(escalator=1)
+
+    # '' none-elevator ''
+    if asc_param.__contains__("with"):
+        stop_list = stop_list.filter(ascenseur=1)
+
+    #'' none-pmr ''
+    if pmr_param.__contains__("with"):
+        stop_list = stop_list.filter(pmr=1)
+        
+    print("Total stop_list size (After): " + str(stop_list.count()))
 
     lat = Decimal(request.GET.get("lat"))
     lon = Decimal(request.GET.get("lon"))
 
+    #Get the nearest spot from the filtered bus_stop list
     id_res = get_nearset_stop(stop_list, lat, lon)
 
-    print([["P.M.R",request.GET.get("P.M.R")], ["Escalator", str(request.GET.get("Escalator"))], ["Ascenceur", request.GET.get("Ascenceur")]])
+    print([["P.M.R",pmr_param], ["Escalator", esc_param], ["Ascenseur", asc_param]])
 
+    #Create a context var to fill templates with results
     context = {
         "stop_list" : stop_list,
         "lat" : lat,
         "lon" : lon,
         "nearest_stop" : Stop.objects.get(id=id_res),
-        "navBar_research_parameters" : [["P.M.R",request.GET.get("P.M.R")], ["Escalator", request.GET.get("Escalator")], ["Ascenceur", request.GET.get("Ascenseur")]],
+        "navBar_research_parameters" : [["P.M.R",pmr_param], ["Escalator", asc_param], ["Ascenseur", asc_param]],
         "site_addr" : addr + request.META['SERVER_PORT'] + reverse("getRoute")
     }
+
     return render(request, 'getRoute.html', context )
