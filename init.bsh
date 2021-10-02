@@ -1,0 +1,1 @@
+nohup python3 /home/karon/tcl-project/manage.py runserver_plus --cert-file /home/karon/cert/cert.pem --key-file /home/karon/cert/privkey.pem 192.168.1.30:8080 &

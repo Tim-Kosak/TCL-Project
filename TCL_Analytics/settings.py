@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-j9xb6$8--+)jekw_p7@^r(ta+igbjnbz3he^&5rvhbqv%*@8q2
 DEBUG = True
 SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = ['192.168.1.30',
-                    'miniking-nas.ddns.net']
+                    'miniking-nas.ddns.net',
+                    'tcl-groupe-3.webredirect.org']
 
 
 # Application definition
