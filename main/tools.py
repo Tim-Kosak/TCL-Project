@@ -1,9 +1,11 @@
 import math
 from .models import *
 
+#Calcul la distance qui sépare 2 points
 def dist(P1, P2):
     return math.sqrt((P1[0] - P2[0])**2 + (P1[1] - P2[1])**2)
 
+# Détermine l'arrêt de bus le plus proche
 def get_nearset_stop(stop_list, orig_lat, orig_lon):
     res_id = 0
     min_dist = dist([orig_lat, orig_lon], [stop_list[0].coord1, stop_list[0].coord2])
