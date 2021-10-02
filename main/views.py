@@ -9,17 +9,20 @@ from django.urls import reverse
 
 addr = "https://miniking-nas.ddns.net:"
 
+# Vue web récupérant les coordonnées GPS de l'utilisateur
 def index(request):
     return render(request, 'index.html', {"port" : request.META['SERVER_PORT'],
                                            "siteaddr" : addr })
 
+# Vue affichant le fond de carte avec l'itinéraire vers l'arrêt le plus proche
 def getRoute(request):
-    #Get parameters passed by GET method
+
+    # Récupère les paramètres passés par GET
     esc_param = str(request.GET.get("Escalator"))
     pmr_param = str(request.GET.get("P.M.R"))
     asc_param = str(request.GET.get("Ascenseur"))
 
-    stop_list = Stop.objects.filter(coord1__lte = 1000, coord2__lte = 1000) #Filtre sur les adresses non valides
+    stop_list = Stop.objects.filter(coord1__lte = 1000, coord2__lte = 1000) #Filtre sur les adresses non valides, i.e latitude / longitude > 1000
 
     print("Total stop_list size (Before): " + str(stop_list.count()))
 
@@ -41,12 +44,12 @@ def getRoute(request):
     lat = Decimal(request.GET.get("lat"))
     lon = Decimal(request.GET.get("lon"))
 
-    #Get the nearest spot from the filtered bus_stop list
+    #Détermine l'arrêt de bus le plus proche depuis la list filtrée fournie
     id_res = get_nearset_stop(stop_list, lat, lon)
 
     print([["P.M.R",pmr_param], ["Escalator", esc_param], ["Ascenseur", asc_param]])
 
-    #Create a context var to fill templates with results
+    #Contexte passé lors du rendu
     context = {
         "stop_list" : stop_list,
         "lat" : lat,
