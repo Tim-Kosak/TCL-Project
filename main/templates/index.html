@@ -18,7 +18,7 @@
             const { latitude, longitude } = position.coords;
             console.log(latitude, longitude);
 
-            var url = "http://127.0.0.1:" + "{{ port }}" + {% url 'getRoute' %} + "?lat=" + latitude + "&lon=" + longitude;
+            var url = "{{ siteaddr }}" + "{{ port }}" + {% url 'getRoute' %} + "?lat=" + latitude + "&lon=" + longitude;
             window.location.replace(url)
         });
     </script>
