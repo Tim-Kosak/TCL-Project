@@ -7,10 +7,11 @@ from django.urls import reverse
 
 # Create your views here.
 
-addr = "http://127.0.0.1:"
+addr = "https://miniking-nas.ddns.net:"
 
 def index(request):
-    return render(request, 'index.html', {"port" : request.META['SERVER_PORT']})
+    return render(request, 'index.html', {"port" : request.META['SERVER_PORT'],
+                                           "siteaddr" : addr })
 
 def getRoute(request):
     #Get parameters passed by GET method
@@ -28,6 +29,7 @@ def getRoute(request):
 
     # '' none-elevator ''
     if asc_param.__contains__("with"):
+
         stop_list = stop_list.filter(ascenseur=1)
 
     #'' none-pmr ''

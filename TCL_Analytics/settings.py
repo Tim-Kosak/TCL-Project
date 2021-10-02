@@ -24,8 +24,9 @@ SECRET_KEY = 'django-insecure-j9xb6$8--+)jekw_p7@^r(ta+igbjnbz3he^&5rvhbqv%*@8q2
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+SECURE_SSL_REDIRECT = True
+ALLOWED_HOSTS = ['192.168.1.30',
+                    'miniking-nas.ddns.net']
 
 
 # Application definition
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
+    "django_extensions",
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
