@@ -7,7 +7,7 @@ from django.urls import reverse
 
 # Create your views here.
 
-addr = "https://miniking-nas.ddns.net:"
+addr = "http://127.0.0.1:"
 
 # Vue web récupérant les coordonnées GPS de l'utilisateur
 def index(request):

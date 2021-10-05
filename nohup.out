@@ -1,0 +1,35 @@
+ * Running on https://192.168.1.30:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+Django version 3.2.7, using settings 'TCL_Analytics.settings'
+Development server is running at https://192.168.1.30:8080/
+Using the Werkzeug debugger (http://werkzeug.pocoo.org/)
+Quit the server with CONTROL-C.
+ * Debugger is active!
+ * Debugger PIN: 200-803-233
+192.168.1.254 - - [02/Oct/2021 19:58:04] "GET / HTTP/1.1" 200 -
+Not Found: /favicon.ico
+192.168.1.254 - - [02/Oct/2021 19:58:04] "GET /favicon.ico HTTP/1.1" 404 -
+Total stop_list size (Before): 4488
+Total stop_list size (After): 4488
+[['P.M.R', 'None'], ['Escalator', 'None'], ['Ascenseur', 'None']]
+192.168.1.254 - - [02/Oct/2021 19:58:04] "GET /route/?lat=45.823377&lon=4.8692676 HTTP/1.1" 200 -
+ * Running on https://192.168.1.30:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+Django version 3.2.7, using settings 'TCL_Analytics.settings'
+Development server is running at https://192.168.1.30:8080/
+Using the Werkzeug debugger (http://werkzeug.pocoo.org/)
+Quit the server with CONTROL-C.
+ * Debugger is active!
+ * Debugger PIN: 111-490-976
+Total stop_list size (Before): 4488
+Total stop_list size (After): 4488
+[['P.M.R', 'None'], ['Escalator', 'None'], ['Ascenseur', 'None']]
+192.168.1.254 - - [02/Oct/2021 20:23:15] "GET /route/?lat=45.8233109&lon=4.8692391 HTTP/1.1" 200 -
